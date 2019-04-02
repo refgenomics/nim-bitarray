@@ -8,7 +8,7 @@ import bitarray
 import murmur3
 import strutils
 import times
-from random import random, randomize
+from random import rand, randomize
 
 type
   BloomFilter = object
@@ -65,7 +65,7 @@ when isMainModule:
   for i in 0..(n_tests - 1):
     var new_string = ""
     for j in 0..(test_string_len):
-      new_string.add(sample_chars[random(51)])
+      new_string.add(sample_chars[rand(51)])
     k_test_elements[i] = new_string
 
   let start_time = cpuTime()

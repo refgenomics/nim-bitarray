@@ -1,7 +1,7 @@
 import memfiles
 from os import nil
 from strutils import `%`, formatFloat, ffDecimal, toBin
-from random import random, randomize
+from random import rand, randomize
 from times import nil
 
 
@@ -12,7 +12,7 @@ type
 type
   BitArrayError* = object of Exception
   BitArrayKind = enum inmem, mmap
-  FlexArray {.unchecked.} = array[0..0, BitArrayScalar]
+  FlexArray = UncheckedArray[BitArrayScalar]
   BitArray* = ref object
     size_elements: int
     size_bits*: int
@@ -250,7 +250,7 @@ when isMainModule:
   var n_test_positions = newSeq[int](n_tests)
 
   for i in 0..(n_tests - 1):
-    n_test_positions[i] = random(n_bits)
+    n_test_positions[i] = rand(n_bits)
 
   # Timing tests
   var start_time, end_time: float
