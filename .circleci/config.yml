@@ -1,0 +1,11 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/nim-bitarray
+    docker:
+      - image: nimlang/nim:0.19.2
+    steps:
+      - checkout
+      - run: nim c bitarray/bitarray.nim
+      - run: ./bitarray/bitarray
